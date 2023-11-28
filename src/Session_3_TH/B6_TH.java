@@ -10,7 +10,6 @@ public class B6_TH {
         a = scanner.nextInt();
         System.out.println("Nhập vào số thứ hai: ");
         b = scanner.nextInt();
-        int gcd = 1;
 
         do {
             System.out.println("************ CACULATOR ************");
@@ -37,35 +36,37 @@ public class B6_TH {
                     System.out.printf("Tích của %d và %d là: %d\n", a, b, (a * b));
                     break;
                 case 4:
-                    if (b == 0) {
-                        System.out.println("Số bị chia phải khác 0.");
-                    } else {
-                        System.out.printf("Thương của %d và %d là: %d\n", a, b, (a / b));
-                    }
+                    System.out.printf("Thương của %d và %d là: %d\n", a, b, (a / b));
                     break;
                 case 5:
-                    if (b == 0) {
-                        System.out.println("Số bị chia phải khác 0.");
-                    } else {
-                        System.out.printf("Số dư tong phép chia %d và %d là %d\n", a, b, (a % b));
-                    }
+                    System.out.printf("Số dư tong phép chia %d và %d là %d\n", a, b, (a % b));
                     break;
                 case 6:
-                    for (int i = 1; i <= a && i <= b; i++) {
-                        if (a % i == 0 && b % i == 0)
-                            gcd = i;
+                    int number1 = a, number2 = b;
+                    while (number1 != number2) {
+                        if (number1 > number2) {
+                            number1 -= number2;
+                        } else {
+                            number2 -= number1;
+                        }
                     }
-                    System.out.printf("Ước chung lớn nhất của %d và %d là: %d\n", a, b, gcd);
+                    System.out.printf("Ước chung lớn nhất của %d và %d là: %d\n", a, b, number1);
                     break;
                 case 7:
-                    int lcm;
-                    lcm = (a * b) / gcd;
-                    System.out.printf("Bội chung nhỏ nhất của %d và %d là: %d\n", a, b, lcm);
+                    int numberOne = a, numberTwo = b;
+                    while (numberOne != numberTwo) {
+                        if (numberOne > numberTwo) {
+                            numberOne -= numberTwo;
+                        } else {
+                            numberOne -= numberTwo;
+                        }
+                    }
+                    System.out.printf("Bội chung nhỏ nhất của %d và %d là: %d\n", a, b, (a * b) / numberOne);
                     break;
                 case 8:
                     System.exit(0);
                 default:
-                    System.out.println("Lựa chọn của bạn không phù hợp. Vui lòng nhập lại!");
+                    System.err.println("Lựa chọn của bạn không phù hợp. Vui lòng nhập lại!");
             }
         } while (true);
     }
